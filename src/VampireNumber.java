@@ -2,11 +2,12 @@ import java.util.Scanner;
 
 public class VampireNumber {
     public static void main(String[] args) {
-        Scanner sc=new Scanner(System.in);
+        
+        int n=1000;
+        int count_vamp=0;
+        while(true){
         int v=0;
         long n,i,c=0,f=0,j=0,x,k,p,c1,c2,b[]=new long[100];
-        System.out.println("Enter a number:");
-        n=sc.nextLong();
         //Counting the number of digits
         for(i=n;i>0;i/=10)
             c++;
@@ -66,13 +67,16 @@ public class VampireNumber {
             }
 
         }
-        if(v==0)
-            System.out.println("Not a vampire number");
-        else
+            if(count_vamp>100)
+                break;
+            n++;
+        if(v!=0)
         {
-            System.out.println("Vampire number fangs are: ");
+            count_vamp++;
             for(int ii=0;ii<v;ii++)
                 System.out.println(b[ii]+"\t"+(n/b[ii]));
+        }
+            
         }
     }
 
